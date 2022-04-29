@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    <title>Ideias - Casa Criativa</title>
+{% endblock %}
+
+{% set bodyId = "page-ideas" %}
+
+{% block content %}
+    <header>
+        <a href="/">
+            <img src="logo.png" alt="Imagem da logomarca">
+        </a>
+        <nav>
+            <li><a href="/">Início</a></li>
+            <li><a href="#">Ideias</a></li>
+            <li><a href="#" onclick="onOff()" class="button">Nova Ideia</a></li>
+        </nav>
+    </header>
+    <section id="title">
+        <p>em exibição</p>
+        <h1>Ideias</h1>
+    </section>
+    <main>
+        <section id="ideas">
+            {% include "all_ideas.html" %}
+        </section>
+
+    </main>
+
+    <footer id="footer"> com ❤️ <a href="https://www.linkedin.com/in/ellen-gon%C3%A7alves-29546820a/"
+            target="_blank">Ellen</a> em curso da Rocketseat</footer>
+{% endblock %}

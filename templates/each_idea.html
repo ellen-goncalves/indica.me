@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+
+{% set bodyId = "page-ideas" %}
+
+{% block content %}
+    <header>
+        <a href="/">
+            <img src="/logo.png" alt="Imagem da logomarca">
+        </a>
+        <nav>
+            <li><a href="/">Início</a></li>
+            <li><a href="/ideias">Ideias</a></li>
+            <li><a href="#" onclick="onOff()" class="button">Nova Ideia</a></li>
+        </nav>
+    </header>
+    <main>
+        <p>em exibição</p>
+        {% for idea in ideas %}
+            <h1>{{idea.title}}</h1>
+            <img src="{{idea.image}}" alt="Imagem de {{idea.title}}">
+            <h3>{{idea.title}}</h3>
+            <div class="description">
+                <p>{{idea.description}}</p>
+            </div>
+
+            <a href="/delete/{{idea.id}}" onclick="onOff()" class="button">Remover</a>
+        {% endfor %}
+    </main>
+
+    <footer id="footer"> com ❤️ <a href="https://www.linkedin.com/in/ellen-gon%C3%A7alves-29546820a/"
+            target="_blank">Ellen</a> em curso da Rocketseat</footer>
+{% endblock %}
