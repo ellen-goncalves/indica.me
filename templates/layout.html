@@ -1,17 +1,22 @@
+{% load static %}
+
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    {% block title %}
-        <title>Casa Criativa</title>
-    {% endblock %}
-
-
-    {% include "head.html" %}
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap"
+            rel="stylesheet">
+    
+        <link rel="stylesheet" href="{% static '/style.css' %}">
+        {% block title %}
+            <title>Casa Criativa</title>
+        {% endblock %}
+    </head>
 </head>
 
-<body id="{{ bodyId }}">
+<body id="{{bodyId}}">
     <div id="container">
         {% block content %}
         {% endblock %}
@@ -21,7 +26,7 @@
     <!-- Modal-->
     {% include "modal.html" %}
 
-    <script src="scripts.js"></script>
+    <script type="text/javascript" src="{% static '/scripts.js' %}"></script>
 
 </body>
 

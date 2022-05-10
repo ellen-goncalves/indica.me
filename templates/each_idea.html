@@ -1,8 +1,6 @@
 {% extends "layout.html" %}
 
 
-{% set bodyId = "page-ideas" %}
-
 {% block content %}
     <header>
         <a href="/">
@@ -16,16 +14,14 @@
     </header>
     <main>
         <p>em exibição</p>
-        {% for idea in ideas %}
-            <h1>{{idea.title}}</h1>
-            <img src="{{idea.image}}" alt="Imagem de {{idea.title}}">
-            <h3>{{idea.title}}</h3>
-            <div class="description">
-                <p>{{idea.description}}</p>
-            </div>
+        <h1>{{idea.title}}</h1>
+        <img src="{{idea.image}}" alt="Imagem de {{idea.title}}">
+        <h3>{{idea.title}}</h3>
+        <div class="description">
+            <p>{{idea.description}}</p>
+        </div>
 
-            <a href="/delete/{{idea.id}}" onclick="onOff()" class="button">Remover</a>
-        {% endfor %}
+        <a href="/delete/{{idea.id}}" onclick="onOff()" class="button">Remover</a>
     </main>
 
     <footer id="footer"> com ❤️ <a href="https://www.linkedin.com/in/ellen-gon%C3%A7alves-29546820a/"

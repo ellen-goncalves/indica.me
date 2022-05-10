@@ -1,7 +1,8 @@
 <div id="modal" class="hide">
     <div class="content">
         <h1>Nova Ideia</h1>
-        <form action="/" method="POST" onsubmit="checkFields(event)">
+        <form action="/ideias/adicionar" method="POST" onsubmit="checkFields(event)"> 
+            {% csrf_token %}
             <div class="input-wrapper">
                 <label for="title">Título da ideia</label>
                 <input type="text" name="title">
@@ -9,7 +10,12 @@
 
             <div class="input-wrapper">
                 <label for="category">Categoria</label>
-                <input type="text" name="category">
+                <select name="category">
+                    <option value="Jogos">Jogos</option>
+                    <option value="Entretenimento">Entretenimento</option>
+                    <option value="Saude">Saude</option>
+                    <option value="Aleatorio" selected>Aleatorio</option>
+                </select>
             </div>
                 
             <div class="input-wrapper">
