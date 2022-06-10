@@ -67,3 +67,23 @@ def adicionar_ideia(request):
         idea = Idea.objects.create(title=title, category=category, image=image, description=description, url=link, author=author)
 
     return redirect('/')
+
+@login_required(login_url='/login/')
+def delete_idea(request, idea_id):
+    idea = Idea.objects.get(id=idea_id)
+    user = request.user
+    if user == idea.author:
+        idea.delete()
+    else:
+        return HttpResponse('<h1>Você não é o author dessa ideia.</h1>')
+
+    return redirect('/')
+
+def editar_ideia(request):
+    id_idea = request.GET.get('id')
+
+    print(id_idea)
+    dados = {}
+    if id_idea:
+        dados['idea'] = Idea.objects.filter(id=id_idea)
+    return render (request, 'modal.html', dados)

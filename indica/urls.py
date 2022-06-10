@@ -25,6 +25,8 @@ urlpatterns = [
     path('ideias/<int:titulo_ideia>', views.mostrar_idea),
     path('ideias/minhas', views.minhas_ideas),
     path('ideias/adicionar', views.adicionar_ideia),
+    path('remover/<int:idea_id>', views.delete_idea),
+    path('editar/', views.editar_ideia),
     path('login/', views.login_user),
     path('login/submit', views.submit_login),
     path('logout/', views.logout_user),

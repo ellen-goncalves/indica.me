@@ -5,7 +5,7 @@
             {% csrf_token %}
             <div class="input-wrapper">
                 <label for="title">Título da ideia</label>
-                <input type="text" name="title">
+                <input type="text" name="title" value="{{idea.title}}">
             </div>
 
             <div class="input-wrapper">
@@ -20,17 +20,17 @@
                 
             <div class="input-wrapper">
                 <label for="image">Link da imagem</label>
-                <input type="url" name="image">
+                <input type="url" name="image" value="{{idea.image}}">
             </div>
 
             <div class="input-wrapper">
                 <label for="description">Digite uma descrição para essa ideia</label>
-                <textarea name="description" cols="30" rows="10"></textarea>
+                <textarea name="description" cols="30" rows="10" value="{{idea.description}}"></textarea>
             </div>
 
             <div class="input-wrapper">
                 <label for="link">Link da ideia</label>
-                <input type="url" name="link">
+                <input type="url" name="link" value="{{idea.url}}">
             </div>
 
             <a href="#" onclick="onOff()">Voltar</a>
