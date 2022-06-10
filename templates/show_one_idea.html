@@ -1,15 +1,7 @@
 {% extends "layout.html" %}
 
-
 {% block content %}
-    <header>
-        {% include "logo.html" %}
-        <nav>
-            <li><a href="/">Início</a></li>
-            <li><a href="/ideias">Ideias</a></li>
-            <li><a href="#" onclick="onOff()" class="button">Nova Ideia</a></li>
-        </nav>
-    </header>
+    {% include "header_ideas.html" %}
     <main>
         <p>em exibição</p>
         <h1>{{idea.title}}</h1>
@@ -22,7 +14,4 @@
         <a href="/editar/?id={{idea.id}}" onclick="onOff()" class="button">Editar</a>
         <a href="/remover/{{idea.id}}" onclick="onOff()" class="button">Remover</a>
     </main>
-
-    <footer id="footer"> com ❤️ <a href="https://www.linkedin.com/in/ellen-gon%C3%A7alves-29546820a/"
-            target="_blank">Ellen</a> em curso da Rocketseat</footer>
 {% endblock %}
