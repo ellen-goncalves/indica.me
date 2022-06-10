@@ -1,30 +1,36 @@
 <div id="modal" class="hide">
     <div class="content">
         <h1>Nova Ideia</h1>
-        <form action="/" method="POST" onsubmit="checkFields(event)">
+        <form action="/ideias/adicionar" method="POST" onsubmit="checkFields(event)"> 
+            {% csrf_token %}
             <div class="input-wrapper">
                 <label for="title">Título da ideia</label>
-                <input type="text" name="title">
+                <input type="text" name="title" value="{{idea.title}}">
             </div>
 
             <div class="input-wrapper">
                 <label for="category">Categoria</label>
-                <input type="text" name="category">
+                <select name="category">
+                    <option value="Jogos">Jogos</option>
+                    <option value="Entretenimento">Entretenimento</option>
+                    <option value="Saude">Saude</option>
+                    <option value="Aleatorio" selected>Aleatorio</option>
+                </select>
             </div>
                 
             <div class="input-wrapper">
                 <label for="image">Link da imagem</label>
-                <input type="url" name="image">
+                <input type="url" name="image" value="{{idea.image}}">
             </div>
 
             <div class="input-wrapper">
                 <label for="description">Digite uma descrição para essa ideia</label>
-                <textarea name="description" cols="30" rows="10"></textarea>
+                <textarea name="description" cols="30" rows="10" value="{{idea.description}}"></textarea>
             </div>
 
             <div class="input-wrapper">
                 <label for="link">Link da ideia</label>
-                <input type="url" name="link">
+                <input type="url" name="link" value="{{idea.url}}">
             </div>
 
             <a href="#" onclick="onOff()">Voltar</a>

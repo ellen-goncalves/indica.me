@@ -18,7 +18,6 @@ function checkFields(event) {
 
     const valuesToCheck = [
         "title",
-        "category",
         "image",
         "description",
         "url",

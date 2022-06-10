@@ -4,22 +4,21 @@
     <title>Ideias - Casa Criativa</title>
 {% endblock %}
 
-{% set bodyId = "page-ideas" %}
-
 {% block content %}
     <header>
-        <a href="/">
-            <img src="logo.png" alt="Imagem da logomarca">
-        </a>
+
+        {% include "logo.html" %}
         <nav>
             <li><a href="/">Início</a></li>
-            <li><a href="#">Ideias</a></li>
+            <li><a href="/ideias/minhas">Minhas ideias</a></li>
             <li><a href="#" onclick="onOff()" class="button">Nova Ideia</a></li>
         </nav>
     </header>
     <section id="title">
-        <p>em exibição</p>
-        <h1>Ideias</h1>
+        {% if author is not null %}
+            <p>Olá, {{ author }}, seja bem-vinde!</p>
+        {% endif %}
+        <h1><a href="/ideias">Ideias</a></h1>
     </section>
     <main>
         <section id="ideas">

@@ -20,8 +20,15 @@ from core import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('ideas/<nome>/<int:idade>', views.hello),
-    path('soma/<int:numero1>/<int:numero2>', views.soma),
-    path('ideas/', views.ideas),
-    path('ideias/<titulo_ideia>')
+    path("", views.home),
+    path('ideias/', views.ideas),
+    path('ideias/<int:titulo_ideia>', views.mostrar_idea),
+    path('ideias/minhas', views.minhas_ideas),
+    path('ideias/adicionar', views.adicionar_ideia),
+    path('remover/<int:idea_id>', views.delete_idea),
+    path('editar/', views.editar_ideia),
+    path('login/', views.login_user),
+    path('login/submit', views.submit_login),
+    path('logout/', views.logout_user),
+
 ]
