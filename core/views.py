@@ -17,7 +17,7 @@ def home (request):
 def login_user(request):
     return render(request, 'login.html')
 
-def submit_login(request):
+def submit_login(request): 
     if request.POST:
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -40,20 +40,20 @@ def ideas (request):
     user = request.user
     ideas = Idea.objects.all()
     context = {'ideas': ideas, 'bodyId':"page-ideas", 'author':user.username}
-    return render(request, 'ideias.html', context)
+    return render(request, 'show_ideas.html', context)
 
 @login_required(login_url='/login/')
 def minhas_ideas (request):
     user = request.user
     ideas = Idea.objects.filter(author=user)
     context = {'ideas': ideas, 'bodyId':"page-ideas"}
-    return render(request, 'ideias.html', context)
+    return render(request, 'show_ideas.html', context)
 
 @login_required(login_url='/login/')
 def mostrar_idea (request, titulo_ideia):
     idea = Idea.objects.get(id=titulo_ideia)
     context = {'idea': idea, 'bodyId':"page-ideas"}
-    return render(request, 'each_idea.html', context)
+    return render(request, 'show_one_idea.html', context)
 
 @login_required(login_url='/login/')
 def adicionar_ideia(request):
@@ -86,4 +86,4 @@ def editar_ideia(request):
     dados = {}
     if id_idea:
         dados['idea'] = Idea.objects.filter(id=id_idea)
-    return render (request, 'modal.html', dados)
+    return render (request, 'add_idea.html', dados)

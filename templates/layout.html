@@ -24,7 +24,16 @@
     </div>
 
     <!-- Modal-->
-    {% include "modal.html" %}
+    {% include "add_idea.html" %}
+
+    <footer id="footer">  
+        {% if user.is_authenticated %}
+            <a href="/logout/">Logout</a>
+        {% else %}
+            <a href="/login/">Login</a>
+        {% endif %}
+        <p>com ❤️ <a href="https://www.linkedin.com/in/ellen-gon%C3%A7alves-29546820a/" target="_blank">Ellen</a></p>
+    </footer>
 
     <script type="text/javascript" src="{% static '/scripts.js' %}"></script>
 
